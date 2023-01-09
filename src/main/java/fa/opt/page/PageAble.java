@@ -2,7 +2,7 @@ package fa.opt.page;
 
 public class PageAble {
 	private int page;
-	private int size = 5;
+	private int size = 4;
 
 	public PageAble(int page) {
 		super();

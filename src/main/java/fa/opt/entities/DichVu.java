@@ -92,7 +92,7 @@ public class DichVu {
 	@Override
 	public String toString() {
 		return "DichVu [maDV=" + maDV + ", tenDV=" + tenDV + ", donViTinh=" + donViTinh + ", donGia=" + donGia
-				+ ", suDungDichVu=" + suDungDichVu + "]";
++ "]";
 	}
 
 }

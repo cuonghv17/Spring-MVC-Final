@@ -5,12 +5,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<footer class="footer"  style="bottom:0px ; position: fixed; width: 100%">
+	<footer class="footer"  style="bottom:0px ; position: fixed; width: 100% ; height: 50px" >
 
 		<div class="card-body center" style="background: gray;">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural
-				lead-in to additional content.</p>
+			
+			<p class="card-text">footer.</p>
 			<a href="#" class="btn btn-primary">footer</a>
 		</div>
 	</footer>

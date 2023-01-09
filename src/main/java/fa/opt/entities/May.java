@@ -78,7 +78,7 @@ public class May {
 
 	@Override
 	public String toString() {
-		return "May [maMay=" + maMay + ", viTri=" + viTri + ", trangThai=" + trangThai + ", suDungMay=" + suDungMay
+		return "May [maMay=" + maMay + ", viTri=" + viTri + ", trangThai=" + trangThai 
 				+ "]";
 	}
 

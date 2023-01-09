@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>New May</title>
+
 </head>
 <body>
 	<header>
@@ -34,10 +34,18 @@
 				<div class="mb-3 justify-content-md-center">
 				<div class=" input-group row justify-content-md-center">
 					<form:label class="col-1 col-form-label" path="trangThai">Trang thai</form:label>
-					<form:input class="form-control col-sm-4" path="trangThai" id="trangThai" />
+					<form:select path="trangThai" class="custom-select col-sm-4"
+						id="trangThai">
+						<form:option value="">chon tinh trang</form:option>
+						<form:option value="Ranh">Ranh</form:option>
+						<form:option value="Ban">Ban</form:option>
+						<form:option value="Sua Chua">Sua Chua</form:option>
+					</form:select>
+					
 					</div>
 					<span class="text-danger" id="trangThaiError"></span>
 				</div>
+				
 				<div class="form-group">
 					<form:button class="btn btn-outline-success col-sm-1" value="Add">Add</form:button>
 				</div>

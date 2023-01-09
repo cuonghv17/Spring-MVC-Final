@@ -86,14 +86,46 @@
 						<td>${c.diaChi}</td>
 						<td>${c.soDienThoai}</td>
 						<td>${c.diaChiEmail}</td>
-						<td><a class="btn btn-danger btn-sm" href="delete?maKH=${c.maKH}">Delete</a> <a class="btn btn-warning btn-sm"
+						<td><a class="btn btn-danger btn-sm" onclick="showConfig('${c.maKH}')" >Delete</a> <a class="btn btn-warning btn-sm"
 							href="update/${c.maKH}">Update</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<br />
+		<script type="text/javascript">
+			function showConfig(id) {
+				$('#maKH').text(id);
+				$('#yesOptionConfirm').attr('href',
+						'delete?maKH=${c.maKH}' + id);
+				$('#configmationConfirmId').modal('show');
+			}
+		</script>
 
+		<!-- Modal -->
+		<div class="modal" id="configmationConfirmId">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Xác nhận</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Bạn có muốn xác nhan xoa DK có mã "<span id="maKH"></span>" ?
+						</p>
+					</div>
+					<div class="modal-footer">
+						<a id="yesOptionConfirm" type="button" class="btn btn-info">Có</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div class="pagination col-8">
 			<c:if test="${currentPage > 1}">
 				<a href="list?page=${currentPage-1}">Previous</a>

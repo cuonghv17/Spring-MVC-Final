@@ -42,7 +42,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>List May</title>
+
 
 <meta charset="ISO-8859-1">
 
@@ -55,7 +55,7 @@
 
 	<div align="center" style="margin: 25px">
 
-		<h3>List May</h3> 
+		
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/may/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -82,7 +82,7 @@
 						<td scope="row">${c.maMay}</td>
 						<td>${c.viTri}</td>
 						<td>${c.trangThai}</td>
-						<td><a class="btn btn-danger btn-sm" href="delete?maMay=${c.maMay}">Delete</a> <a class="btn btn-warning btn-sm"
+						<td><a class="btn btn-danger btn-sm" onclick="showConfig('${c.maMay}')" >Delete</a> <a class="btn btn-warning btn-sm"
 							href="update/${c.maMay}">Update</a></td>
 					</tr>
 				</c:forEach>
@@ -90,6 +90,40 @@
 		</table>
 		<br />
 
+<script type="text/javascript">
+			function showConfig(id) {
+				$('#maMay').text(id);
+				$('#yesOptionConfirm').attr('href',
+						'delete?maMay=${c.maMay}' + id);
+				$('#configmationConfirmId').modal('show');
+			}
+
+</script>
+
+		<!-- Modal -->
+		<div class="modal" id="configmationConfirmId">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Xác nhận</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Bạn có muốn xác nhan xoa DK có mã "<span id="maMay"></span>" ?
+						</p>
+					</div>
+					<div class="modal-footer">
+						<a id="yesOptionConfirm" type="button" class="btn btn-info">Có</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div class="pagination col-8">
 			<c:if test="${currentPage > 1}">
 				<a href="list?page=${currentPage-1}">Previous</a>

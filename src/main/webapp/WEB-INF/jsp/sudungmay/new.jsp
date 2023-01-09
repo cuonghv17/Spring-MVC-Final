@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,26 +30,48 @@
 
 
 
-			<div class="input-group justify-content-md-center mb-3 row">
-
+						<div class="mb-3 justify-content-md-center">
+			<div class="justify-content-md-center row">
+		
 				<form:label class="col-sm-2" path="KhachHang.maKH">Khach Hang</form:label>
-
-				<form:select class="custom-select col-sm-4" id="inputGroupSelect01"
-					path="KhachHang.maKH" items="${khachHangs}" itemValue="maKH"
-					itemLabel="tenKH">
-					<form:errors path="KhachHang.maKH" />
-				</form:select>
+				
+				<form:select path="KhachHang.maKH" class="custom-select col-sm-4"
+						id="KhachHang">
+						<form:option value="">chon...</form:option>
+						<c:forEach var="c" items="${khachHangs}" varStatus="status">
+						<option value="${c.maKH}">${c.tenKH}</option>
+					
+						</c:forEach>
+						
+					</form:select>
+					
+					</div>
+					<span class="text-danger" id="KhachHangError"></span>
+					
 			</div>
 
-			<div class="input-group justify-content-md-center mb-3 row">
 
-				<form:label class="col-sm-2" path="May.maMay">May</form:label>
 
-				<form:select class="custom-select col-sm-4" id="inputGroupSelect01"
-					path="May.maMay" items="${mays}" itemValue="maMay"
-					itemLabel="viTri">
-					<form:errors path="May.maMay" />
-				</form:select>
+			<div class="mb-3 justify-content-md-center">
+
+			<div class="input-group justify-content-md-center row">
+
+				<form:label class="col-sm-2" path="May.maMay">Dich Vu</form:label>
+
+
+					<form:select path="May.maMay" class="custom-select col-sm-4"
+						id="may">
+						<form:option value="">chon...</form:option>
+						<c:forEach var="c" items="${mays}" varStatus="status">
+						<option value="${c.maMay}">${c.viTri}</option>
+					
+						</c:forEach>
+						
+					</form:select>
+					
+					</div>
+					<span class="text-danger" id="mayError"></span>
+				
 			</div>
 
 			<div class="mb-3 justify-content-md-center">
@@ -97,9 +119,33 @@
 	    const ngayBatDauSuDung = $(this.ngayBatDauSuDung);
 	    const gioBatDauSuDung = $(this.gioBatDauSuDung);
 	    const thoiGianSuDung = $(this.thoiGianSuDung);
+	    const khachHang = $(this.KhachHang);
+	    const may = $(this.may);
+	  
 	    
 	    let isValid = true;
 	  
+	   
+	    if (
+		        !handleDisplayError(
+		        		may,
+		        	isEmpty,
+		            $('#mayError'),
+		            'chon may'
+		        )
+		    ) {
+		        isValid = false;
+		    } 
+	    if (
+		        !handleDisplayError(
+		        	khachHang,
+		        	isEmpty,
+		            $('#KhachHangError'),
+		            'chon KH'
+		        )
+		    ) {
+		        isValid = false;
+		    } 
 	    if (
 	        !handleDisplayError(
 	        	ngayBatDauSuDung,

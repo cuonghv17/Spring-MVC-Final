@@ -43,7 +43,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>List May</title>
+
 
 <meta charset="ISO-8859-1">
 
@@ -56,7 +56,7 @@
 
 	<div align="center" style="margin: 25px">
 
-		<h3>List May</h3> 
+		
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/dichvu/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -87,13 +87,45 @@
 						<td>${c.donGia}</td>
 						
 
-						<td><a class="btn btn-danger btn-sm" href="delete?maDV=${c.maDV}">Delete</a> <a class="btn btn-warning btn-sm"
+						<td><a class="btn btn-danger btn-sm" onclick="showConfig('${c.maDV}')">Delete</a> <a class="btn btn-warning btn-sm"
 							href="update/${c.maDV}">Update</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<br />
+		<script type="text/javascript">
+			function showConfig(id) {
+				$('#maDV').text(id);
+				$('#yesOptionConfirm').attr('href',
+						'delete?maDV=${c.maDV}' + id);
+				$('#configmationConfirmId').modal('show');
+			}
+		</script>
+
+		<!-- Modal -->
+		<div class="modal" id="configmationConfirmId">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Xác nhận</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Bạn có muốn xác nhan xoa DK có mã "<span id="maDV"></span>" ?
+						</p>
+					</div>
+					<div class="modal-footer">
+						<a id="yesOptionConfirm" type="button" class="btn btn-info">Có</a>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="pagination col-8">
 			<c:if test="${currentPage > 1}">

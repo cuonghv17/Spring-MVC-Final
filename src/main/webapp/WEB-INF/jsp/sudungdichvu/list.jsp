@@ -43,7 +43,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>List May</title>
+
 
 <meta charset="ISO-8859-1">
 
@@ -56,7 +56,7 @@
 
 	<div align="center" style="margin: 25px">
 
-		<h3>List May</h3> 
+	
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/sudungdichvu/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">

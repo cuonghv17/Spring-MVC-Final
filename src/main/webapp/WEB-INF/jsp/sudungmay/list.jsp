@@ -56,7 +56,6 @@
 
 	<div align="center" style="margin: 25px">
 
-		<h3>List May</h3> 
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/sudungmay/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">

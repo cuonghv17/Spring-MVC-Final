@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>New May</title>
+
 </head>
 <body>
 	<header>
@@ -29,27 +29,48 @@
 			method="post" modelAttribute="sudungdichvuForm">
 
 
-
-			<div class="justify-content-md-center mb-3 row">
+			<div class="mb-3 justify-content-md-center">
+			<div class="justify-content-md-center row">
 		
 				<form:label class="col-sm-2" path="KhachHang.maKH">Khach Hang</form:label>
-
-				<form:select class="custom-select col-sm-4" id="inputGroupSelect01"
-					path="KhachHang.maKH" items="${khachHangs}" itemValue="maKH"
-					itemLabel="tenKH">
-					<form:errors path="KhachHang.maKH" />
-				</form:select>
+				
+				<form:select path="KhachHang.maKH" class="custom-select col-sm-4"
+						id="KhachHang">
+						<form:option value="">chon...</form:option>
+						<c:forEach var="c" items="${khachHangs}" varStatus="status">
+						<option value="${c.maKH}">${c.tenKH}</option>
+					
+						</c:forEach>
+						
+					</form:select>
+					
+					</div>
+					<span class="text-danger" id="KhachHangError"></span>
+					
 			</div>
 
-			<div class="input-group justify-content-md-center mb-3 row">
+
+
+			<div class="mb-3 justify-content-md-center">
+
+			<div class="input-group justify-content-md-center row">
 
 				<form:label class="col-sm-2" path="DichVu.maDV">Dich Vu</form:label>
 
-				<form:select class="custom-select col-sm-4" id="inputGroupSelect01"
-					path="DichVu.maDV" items="${dichVus}" itemValue="maDV"
-					itemLabel="tenDV">
-					<form:errors path="DichVu.maDV" />
-				</form:select>
+
+					<form:select path="DichVu.maDV" class="custom-select col-sm-4"
+						id="dichVu">
+						<form:option value="">chon...</form:option>
+						<c:forEach var="c" items="${dichVus}" varStatus="status">
+						<option value="${c.maDV}">${c.tenDV}</option>
+					
+						</c:forEach>
+						
+					</form:select>
+					
+					</div>
+					<span class="text-danger" id="dichVuError"></span>
+				
 			</div>
 
 			<div class="mb-3 justify-content-md-center">
@@ -97,9 +118,32 @@
 	    const ngaySuDung = $(this.ngaySuDung);
 	    const gioSuDung = $(this.gioSuDung);
 	    const soLuong = $(this.soLuong);
+	    const khachHang = $(this.KhachHang);
+	    const dichVu = $(this.dichVu);
 	    
 	    let isValid = true;
 	  
+	    
+	    if (
+		        !handleDisplayError(
+		        	dichVu,
+		        	isEmpty,
+		            $('#dichVuError'),
+		            'chon DV'
+		        )
+		    ) {
+		        isValid = false;
+		    } 
+	    if (
+		        !handleDisplayError(
+		        	khachHang,
+		        	isEmpty,
+		            $('#KhachHangError'),
+		            'chon KH'
+		        )
+		    ) {
+		        isValid = false;
+		    } 
 	    if (
 	        !handleDisplayError(
 	        	ngaySuDung,
@@ -134,6 +178,7 @@
 	    
 	    if(!isValid){
         	event.preventDefault();
+        	
         }
 	    
 	});
