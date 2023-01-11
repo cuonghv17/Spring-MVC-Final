@@ -1,5 +1,7 @@
 package fa.opt.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -31,7 +33,21 @@ public class SuDungDichVuServiceImpl implements SuDungDichVuService  {
 	public List<SuDungDichVu> findWithPageAble(PageAble pageAble) {
 		return suDungDichVuRepositoryImpl.findWithPageAble(pageAble);
 	}
-
+	
+	@Override
+	@Transactional
+	public void delete(String maDV, String maKH , LocalDate ngaySuDung, LocalTime gioSuDung){
+		List<SuDungDichVu> suDungDichVu = findById(maDV,maKH,ngaySuDung,gioSuDung);
+		if (suDungDichVu != null) {
+			suDungDichVuRepositoryImpl.delete(suDungDichVu);
+		}
+	}
+	@Override
+	@Transactional
+	public List<SuDungDichVu> findById(String maDV, String maKH , LocalDate ngaySuDung, LocalTime gioSuDung) {
+		return suDungDichVuRepositoryImpl.findById(maDV, maKH, ngaySuDung, gioSuDung);
+	}
+	
 	@Override
 	@Transactional
 	public int totalPages(PageAble pageAble) {

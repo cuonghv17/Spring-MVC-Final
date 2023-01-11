@@ -56,7 +56,7 @@
 
 	<div align="center" style="margin: 25px">
 
-	
+	<h3>List SD DV</h3> 
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/sudungdichvu/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -68,7 +68,7 @@
 			</form>
 
 		</div>
-		<table class="table col-8">
+		<table class="table col-8 text-center">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Ma KH</th>
@@ -86,7 +86,9 @@
 						<td>${c.ngaySuDung}</td>
 						<td>${c.gioSuDung}</td>
 						<td>${c.soLuong}</td>
-
+		<%-- 				<td><a class="btn btn-danger btn-sm" href="delete?maDV=${c.dichVu.maDV}&maKH=${c.khachHang.maKH}&ngaySuDung=${c.ngaySuDung}&gioSuDung=${c.gioSuDung}">Delete</a> </td>
+ --%>
+						
 						
 					</tr>
 				</c:forEach>
@@ -113,7 +115,11 @@
 				<a href="list?page=${currentPage+1}">Next</a>
 			</c:if>
 		</div>
-	</div>
+		</div>
+		<footer style="bottom:0px ; position: fixed; width: 100% ; height: 50px">
+		<jsp:include page="../../jsp/fragments/footer.jsp" />
+	</footer>
+	
 
 </body>
 </html>

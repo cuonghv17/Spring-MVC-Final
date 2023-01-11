@@ -14,6 +14,12 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+/**
+ * entity SuDungDichVu
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
 
 @Entity
 @IdClass(SuDungDichVuID.class)
@@ -40,6 +46,13 @@ public class SuDungDichVu {
 	@Range(min = 1, max = 1000, message = "Nhập soluong trong khoảng 1 - 1000")
 	private int soLuong;
 
+	/**
+	 * @param khachHang
+	 * @param dichVu
+	 * @param ngaySuDung
+	 * @param gioSuDung
+	 * @param soLuong
+	 */
 	public SuDungDichVu(KhachHang khachHang, DichVu dichVu, LocalDate ngaySuDung, LocalTime gioSuDung, int soLuong) {
 		super();
 		this.khachHang = khachHang;

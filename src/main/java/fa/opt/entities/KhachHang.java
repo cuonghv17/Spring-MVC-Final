@@ -13,6 +13,13 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 
+
+/**
+ * entity KhachHang
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
 @Entity
 public class KhachHang {
 	@Id
@@ -39,6 +46,12 @@ public class KhachHang {
 	@OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<SuDungMay> suDungMay;
 
+	/**
+	 * @param tenKH
+	 * @param diaChi
+	 * @param soDienThoai
+	 * @param diaChiEmail
+	 */
 	public KhachHang(String tenKH, String diaChi, String soDienThoai, String diaChiEmail) {
 		super();
 		

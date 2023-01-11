@@ -1,5 +1,7 @@
 package fa.opt.controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -73,7 +75,13 @@ public class SuDungDichVuController {
 	public List<DichVu> initDichVus() {
 		return dichVuServiceImpl.findAll();
 	}
-
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam(name = "maDV") String maDV,@RequestParam(name = "maKH") String maKH,@RequestParam(name = "ngaySuDung") LocalDate ngaySuDung,@RequestParam(name = "gioSuDung") LocalTime gioSuDung) {
+		suDungdichVuServiceImpl.delete(maDV,maKH,ngaySuDung,gioSuDung);
+		return "redirect:/dichvu/list";
+	}
+	
 	@GetMapping("/search")
 	public String delete(@RequestParam(name = "searchKey") String searchKey, Model model) {
 		System.out.println("Search method " + searchKey);

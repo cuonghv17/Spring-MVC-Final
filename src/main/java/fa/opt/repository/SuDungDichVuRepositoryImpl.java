@@ -1,5 +1,7 @@
 package fa.opt.repository;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -47,6 +49,22 @@ public class SuDungDichVuRepositoryImpl implements SuDungDichVuRepository {
 		createQuery.setParameter("searchKey", "%" + searchKey + "%");
 		List<SuDungDichVu> suDungDichVus = createQuery.getResultList();
 		return suDungDichVus;
+	}
+	@Override
+	public List<SuDungDichVu> findById(String maDV, String maKH , LocalDate ngaySuDung, LocalTime gioSuDung) {
+		Session session = sessionFactory.getCurrentSession();
+		Query<SuDungDichVu> createQuery = session.createQuery("SELECT p FROM SuDungDichVu p where p.khachHang.maKH = " +maKH +" and p.dichVu.maDV = "+ maDV +" AND p.ngaySuDung = "+ ngaySuDung +" AND p.gioSuDung = "+ gioSuDung,
+				SuDungDichVu.class);
+		
+		List<SuDungDichVu> suDungDichVu = createQuery.getResultList();
+		return suDungDichVu;
+	
+	}
+
+	@Override
+	public void delete(List<SuDungDichVu> suDungDichVu) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(suDungDichVu);
 	}
 
 }

@@ -13,6 +13,13 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 
+/**
+ * entity may
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
+
 @Entity
 public class May {
 	@Id
@@ -36,6 +43,10 @@ public class May {
 		super();
 	}
 
+	/**
+	 * @param viTri
+	 * @param trangThai
+	 */
 	public May(String viTri, String trangThai) {
 		super();
 		this.viTri = viTri;

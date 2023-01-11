@@ -10,7 +10,12 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+/**
+ * class Id SuDungDichVu 
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
 public class SuDungDichVuID implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "maKH", referencedColumnName = "maKH")

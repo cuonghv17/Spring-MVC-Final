@@ -43,7 +43,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-<title>List May</title>
+
 
 <meta charset="ISO-8859-1">
 
@@ -55,7 +55,7 @@
 	</header>
 
 	<div align="center" style="margin: 25px">
-
+<h3>List SD May</h3> 
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/sudungmay/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -67,7 +67,7 @@
 			</form>
 
 		</div>
-		<table class="table col-8">
+		<table class="table col-8 text-center">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Ma may</th>
@@ -85,7 +85,6 @@
 						<td>${c.ngayBatDauSuDung}</td>
 						<td>${c.gioBatDauSuDung}</td>
 						<td>${c.thoiGianSuDung}</td>
-
 						
 					</tr>
 				</c:forEach>
@@ -112,7 +111,12 @@
 				<a href="list?page=${currentPage+1}">Next</a>
 			</c:if>
 		</div>
-	</div>
+		</div>
+		<footer style="bottom:0px ; position: fixed; width: 100% ; height: 50px">
+		<jsp:include page="../../jsp/fragments/footer.jsp" />
+	</footer>
+
+	
 	
 </body>
 </html>

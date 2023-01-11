@@ -16,15 +16,9 @@
 <jsp:include page="fragments/header.jsp"/>  
 </header>
 	<div align="center">
-		<h2>Demo MVC - Home page</h2>
-		<ul>
-			<li><a href="may/add">tao may moi</a></li>
-			<li><a href="dichvu/add">tao moi dich vu</a></li>
-			<li><a href="category/list">All Category</a></li>
-			<li><a href="khachhang/add">Add new Category</a></li>
-		</ul>
+		<img alt="" src="https://i0.wp.com/www.digitalbusiness.africa/wp-content/uploads/2019/04/INternet.jpg">
 	</div>
-	<footer>
+	<footer style="margin-top: 50px">
 		<jsp:include page="fragments/footer.jsp" />
 	</footer>
 </body>

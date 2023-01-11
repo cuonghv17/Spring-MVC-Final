@@ -62,7 +62,7 @@ public class KhachHangRepositoryImpl implements KhachHangRepository {
 	@Override
 	public List<KhachHang> search(String searchKey) {
 		Session session = sessionFactory.getCurrentSession();
-		Query<KhachHang> createQuery = session.createQuery("SELECT p FROM KhachHang p where p.tenKH like :searchKey",
+		Query<KhachHang> createQuery = session.createQuery("SELECT p FROM KhachHang p where p.tenKH like :searchKey OR p.diaChi like :searchKey",
 				KhachHang.class);
 		createQuery.setParameter("searchKey", "%" + searchKey + "%");
 		List<KhachHang> khachHangs = createQuery.getResultList();

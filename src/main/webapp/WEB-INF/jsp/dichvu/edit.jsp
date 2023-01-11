@@ -139,7 +139,7 @@
 	    return value.length > 50;
 	}
 	</script>
-	<footer>
+	<footer style="bottom:0px ; position: fixed; width: 100% ; height: 50px">
 		<jsp:include page="../../jsp/fragments/footer.jsp" />
 	</footer>
 </body>

@@ -13,6 +13,15 @@ import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+
+/**
+ * entity SuDungMayID 
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
+
 @Entity
 @IdClass(SuDungMayID.class)
 public class SuDungMay {
@@ -42,6 +51,13 @@ public class SuDungMay {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @param khachHang
+	 * @param may
+	 * @param ngayBatDauSuDung
+	 * @param gioBatDauSuDung
+	 * @param thoiGianSuDung
+	 */
 	public SuDungMay(KhachHang khachHang, May may, LocalDate ngayBatDauSuDung, LocalTime gioBatDauSuDung,
 			@Range(min = 1, max = 1000, message = "Nhập thoi gian su dung trong khoảng 1 - 1000 phut") int thoiGianSuDung) {
 		super();

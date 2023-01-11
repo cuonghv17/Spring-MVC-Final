@@ -56,7 +56,7 @@
 
 	<div align="center" style="margin: 25px">
 
-		<h3>List May</h3> 
+		<h3>List </h3> 
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/dangkysudung/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -68,7 +68,7 @@
 			</form>
 
 		</div>
-		<table class="table ">
+		<table class="table text-center">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Ma KH</th>
@@ -83,6 +83,7 @@
 					<th scope="col"> Ngay SD dv</th>
 					<th scope="col"> Gio SD DV </th>
 					<th scope="col"> So luong </th>
+					<th scope="col"> don Gia</th>
 					<th scope="col"> Tong Tien </th>
 					
 				</tr>
@@ -105,6 +106,7 @@
 						<td>${c[10]}</td>
 						<td>${c[11]}</td>
 						<td>${c[12]}</td>
+						<td>${c[13]}</td>
 						
 				
 					</tr>
@@ -134,7 +136,11 @@
 				<a href="list?page=${currentPage+1}">Next</a>
 			</c:if>
 		</div>
-	</div>
+		</div>
+			<footer style="bottom:0px ; position: fixed; width: 100% ; height: 50px">
+		<jsp:include page="../../jsp/fragments/footer.jsp" />
+	</footer>
+	
 
 </body>
 </html>

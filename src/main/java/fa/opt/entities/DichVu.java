@@ -13,8 +13,18 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 
+
+/**
+ * entity Dich Vu
+ * @author cuonghv17
+ * @since 19/08/1999
+ * @version 1.0
+ */
 @Entity
 public class DichVu {
+	
+	
+	
 	@Id
 	@GeneratedValue(generator = "my_generator")  
 	@GenericGenerator(name = "my_generator", strategy = "fa.opt.mygenerator.MyGeneratorDichVu")
@@ -39,6 +49,12 @@ public class DichVu {
 
 	}
 
+	/**
+	 * @param tenDV
+	 * @param donViTinh
+	 * @param donGia
+	 */
+	
 	public DichVu( String tenDV, String donViTinh, float donGia) {
 		super();
 		

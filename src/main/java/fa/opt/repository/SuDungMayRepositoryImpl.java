@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import fa.opt.entities.SuDungMay;
 import fa.opt.page.PageAble;
 
+
 @Repository
 public class SuDungMayRepositoryImpl implements SuDungMayRepository {
 

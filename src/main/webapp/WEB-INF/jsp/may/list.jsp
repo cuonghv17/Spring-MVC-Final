@@ -55,7 +55,7 @@
 
 	<div align="center" style="margin: 25px">
 
-		
+		<h3>List May</h3> 
 		<div align="center">
 			<form action="${pageContext.request.contextPath}/may/search"
 				method="get" class=" input-group mb-3 mt-3" style="width: 50%">
@@ -67,7 +67,7 @@
 			</form>
 
 		</div>
-		<table class="table col-8">
+		<table class="table col-8 text-center">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Ma may</th>
@@ -144,7 +144,7 @@
 			</c:if>
 		</div>
 	</div>
-	<footer>
+	<footer style=" margin-top: 110px">
 		<jsp:include page="../../jsp/fragments/footer.jsp" />
 	</footer>
 </body>
